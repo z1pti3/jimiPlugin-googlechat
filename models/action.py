@@ -1,4 +1,5 @@
 import requests
+import json
 from pathlib import Path
 
 from core.models import action
@@ -24,7 +25,7 @@ class _googlechatWebHook(action._action):
 		kwargs={}
 		kwargs["headers"] = headers
 		kwargs["timeout"] = timeout
-		kwargs["data"] = {"text" : body}
+		kwargs["data"] = json.dumps({"text" : body })
 		if self.ca:
 			kwargs["verify"] == Path(self.ca)
 		if self.proxy:
