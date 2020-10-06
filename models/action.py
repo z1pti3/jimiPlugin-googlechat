@@ -24,7 +24,7 @@ class _googlechatWebHook(action._action):
 		kwargs={}
 		kwargs["headers"] = headers
 		kwargs["timeout"] = timeout
-		kwargs["data"] = body
+		kwargs["data"] = {"text" : body}
 		if self.ca:
 			kwargs["verify"] == Path(self.ca)
 		if self.proxy:
